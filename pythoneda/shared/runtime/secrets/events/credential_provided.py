@@ -1,10 +1,10 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/secrets/events/credential_provided.py
+pythoneda/shared/runtime/secrets/events/credential_provided.py
 
 This file defines the CredentialProvided class.
 
-Copyright (C) 2024-today boot's pythoneda-runtime/secrets-events
+Copyright (C) 2024-today boot's pythoneda-shared-runtime/secrets-events
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by

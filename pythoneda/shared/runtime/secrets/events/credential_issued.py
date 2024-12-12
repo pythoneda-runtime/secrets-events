@@ -1,10 +1,10 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/runtime/secrets/events/credential_requested.py
+pythoneda/shared/runtime/secrets/events/credential_issued.py
 
-This file defines the CredentialRequested class.
+This file defines the CredentialIssued class.
 
-Copyright (C) 2024-today boot's pythoneda-runtime/secrets-events
+Copyright (C) 2024-today boot's pythoneda-shared-runtime/secrets-events
 
 This program is free software: you can redistribute it and/or modify
 it under the terms of the GNU General Public License as published by
@@ -24,11 +24,11 @@ from pythoneda.shared import Event
 from typing import Dict, List
 
 
-class CredentialRequested(Event):
+class CredentialIssued(Event):
     """
-    Represents the event in which a credential is requested.
+    Represents the event in which a credential is issued.
 
-    Class name: CredentialRequested
+    Class name: CredentialIssued
 
     Responsibilities:
         - Represent the information associated to the event.
@@ -40,15 +40,18 @@ class CredentialRequested(Event):
     def __init__(
         self,
         name: str,
+        value: str,
         metadata: Dict[str, str] = {},
         previousEventIds: List[str] = None,
         reconstructedId: str = None,
         reconstructedPreviousEventIds: List[str] = None,
     ):
         """
-        Creates a new CredentialRequested instance.
+        Creates a new CredentialIssued instance.
         :param name: The name of the credential.
         :type name: str
+        :param value: The name of the credential.
+        :type value: str
         :param metadata: The additional metadata.
         :type metadata: str
         :param previousEventIds: The id of previous events, if any.
@@ -66,6 +69,7 @@ class CredentialRequested(Event):
         )
 
         self._name = name
+        self._value = value
         self._metadata = metadata
 
     @property

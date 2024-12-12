@@ -1,8 +1,8 @@
 # vim: set fileencoding=utf-8
 """
-pythoneda/__init__.py
+pythoneda/shared/runtime/secrets/events/__init__.py
 
-This file ensures pythoneda is a namespace.
+This file ensures pythoneda.shared.runtime.secrets.events is a namespace.
 
 Copyright (C) 2024-today rydnr's pythoneda-shared-runtime/secrets-events
 
@@ -20,6 +20,11 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 __path__ = __import__("pkgutil").extend_path(__path__, __name__)
+
+from .credential_issued import CredentialIssued
+from .credential_provided import CredentialProvided
+from .credential_requested import CredentialRequested
+
 # vim: syntax=python ts=4 sw=4 sts=4 tw=79 sr et
 # Local Variables:
 # mode: python
