@@ -20,7 +20,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <https://www.gnu.org/licenses/>.
 """
 import asyncio
-from pythoneda.shared import Event
+from pythoneda.shared import attribute, Event, primary_key_attribute
 from typing import Dict, List
 
 
@@ -43,7 +43,6 @@ class CredentialRequested(Event):
         metadata: Dict[str, str] = {},
         previousEventIds: List[str] = None,
         reconstructedId: str = None,
-        reconstructedPreviousEventIds: List[str] = None,
     ):
         """
         Creates a new CredentialRequested instance.
@@ -55,20 +54,13 @@ class CredentialRequested(Event):
         :type previousEventIds: List[str]
         :param reconstructedId: The id of the event, if it's generated externally.
         :type reconstructedId: str
-        :param reconstructedPreviousEventIds: The id of the previous events, if an external event
-        is being reconstructed.
-        :type reconstructedPreviousEventIds: List[str]
         """
-        super().__init__(
-            previousEventIds,
-            reconstructedId,
-            reconstructedPreviousEventIds,
-        )
-
+        super().__init__(previousEventIds, reconstructedId)
         self._name = name
         self._metadata = metadata
 
     @property
+    @primary_key_attribute
     def name(self) -> str:
         """
         Retrieves the name of the credential.
@@ -76,6 +68,7 @@ class CredentialRequested(Event):
         return self._name
 
     @property
+    @attribute
     def value(self) -> str:
         """
         Retrieves the value of the credential.
@@ -83,6 +76,7 @@ class CredentialRequested(Event):
         return self._value
 
     @property
+    @attribute
     def metadata(self) -> Dict[str, str]:
         """
         Retrieves the metadata of the event.
