@@ -69,14 +69,6 @@ class CredentialRequested(Event):
 
     @property
     @attribute
-    def value(self) -> str:
-        """
-        Retrieves the value of the credential.
-        """
-        return self._value
-
-    @property
-    @attribute
     def metadata(self) -> Dict[str, str]:
         """
         Retrieves the metadata of the event.
